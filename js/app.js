@@ -152,6 +152,12 @@ document.addEventListener("DOMContentLoaded", () => {
         mainContent.style.display = "block";
       }
 
+      const topNav = document.querySelector(".top-nav");
+      if (topNav) topNav.style.display = "flex";
+
+      const editBtn = document.getElementById("floating-edit-btn");
+      if (editBtn) editBtn.style.display = "flex";
+
       // 3. Hide opening screen curtain
       openingScreen.classList.add("hidden");
       

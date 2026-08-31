@@ -369,7 +369,19 @@ body.experience-locked {
   overflow: hidden !important;
   height: 100vh !important;
   max-height: 100vh !important;
+  position: fixed !important;
+  width: 100vw !important;
   touch-action: none !important;
+}
+
+body.experience-locked .top-nav,
+body.experience-locked #floating-edit-btn,
+body.experience-locked #main-experience-content,
+body.experience-locked .main-experience-locked {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 .main-experience-locked {
@@ -382,7 +394,7 @@ body.experience-locked {
   left: 0 !important;
   width: 100vw !important;
   height: 100vh !important;
-  z-index: 99999 !important;
+  z-index: 999999 !important;
   overflow: hidden !important;
   background: radial-gradient(circle at 50% 40%, #1f0714 0%, #080205 80%);
 }
