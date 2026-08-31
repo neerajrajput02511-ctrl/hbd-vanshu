@@ -6,7 +6,7 @@
  * and JSON import/export for seamless customization.
  */
 
-const STORAGE_KEY = "FOR_VANSHIKA_CONFIG_V2";
+const STORAGE_KEY = "FOR_VANSHIKA_CONFIG_V3";
 const IDB_NAME = "VanshikaBirthdayMediaDB";
 const IDB_VERSION = 1;
 const IDB_STORE = "media_blobs";
@@ -101,7 +101,15 @@ class StorageManager {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        return this.deepMerge(window.DEFAULT_CONFIG || {}, parsed);
+        const merged = this.deepMerge(window.DEFAULT_CONFIG || {}, parsed);
+        // Ensure non-empty photos & videos arrays
+        if ((!merged.PHOTOS || merged.PHOTOS.length === 0) && window.DEFAULT_CONFIG && window.DEFAULT_CONFIG.PHOTOS) {
+          merged.PHOTOS = window.DEFAULT_CONFIG.PHOTOS;
+        }
+        if ((!merged.VIDEOS || merged.VIDEOS.length === 0) && window.DEFAULT_CONFIG && window.DEFAULT_CONFIG.VIDEOS) {
+          merged.VIDEOS = window.DEFAULT_CONFIG.VIDEOS;
+        }
+        return merged;
       }
     } catch (e) {
       console.warn("Could not parse saved configuration from localStorage, using defaults.", e);
