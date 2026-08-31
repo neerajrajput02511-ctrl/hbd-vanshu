@@ -138,10 +138,65 @@
         <span class="subtle-label">Moving Keepsakes</span>
         <p class="font-diary" style="font-size:1.6rem; color:var(--rose-dusty);">"I have something to show you."</p>
         <h2>Press play.</h2>
+        
+        <!-- Direct Video Uploader Button -->
+        <div style="margin-top:1.5rem;">
+          <label class="btn-direct-upload" for="direct-video-input" title="Add a new MP4 video directly">
+            <span>🎬</span>
+            <span>+ Add Video (.mp4)</span>
+            <input type="file" id="direct-video-input" accept="video/mp4,video/webm,video/*" style="display:none;" />
+          </label>
+        </div>
       </div>
 
       <div class="video-grid" id="video-gallery-grid">
         <!-- Video cards injected dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       DIRECT MEMORY UPLOADER BAR (ADD PHOTOS, VIDEOS & MUSIC)
+       ========================================================================= -->
+  <section class="direct-uploader-section" id="direct-uploader">
+    <div class="container">
+      <div class="uploader-glass-card">
+        <div class="uploader-header">
+          <span class="subtle-label">Personalize Your Love Story</span>
+          <h3 class="font-serif-luxury" style="color:var(--gold-light); font-size:1.8rem; margin:0.4rem 0;">Add Memories Directly From Here</h3>
+          <p style="color:var(--text-muted); font-size:0.9rem; max-width:500px; margin:0 auto 1.5rem;">
+            Select your real pictures, video clips, or your favorite romantic song to instantly add them to the page!
+          </p>
+        </div>
+
+        <div class="uploader-action-grid">
+          <!-- 1. Photos -->
+          <label class="uploader-box" for="direct-photos-main-input">
+            <div class="uploader-icon">📸</div>
+            <h4>Add Photos</h4>
+            <p>.JPG, .PNG, .WEBP</p>
+            <span class="uploader-cta-badge">Choose Photos</span>
+            <input type="file" id="direct-photos-main-input" accept="image/jpeg,image/png,image/webp,image/*" multiple style="display:none;" />
+          </label>
+
+          <!-- 2. Videos -->
+          <label class="uploader-box" for="direct-videos-main-input">
+            <div class="uploader-icon">🎬</div>
+            <h4>Add Videos</h4>
+            <p>.MP4, .WEBM format</p>
+            <span class="uploader-cta-badge">Choose Videos</span>
+            <input type="file" id="direct-videos-main-input" accept="video/mp4,video/webm,video/*" multiple style="display:none;" />
+          </label>
+
+          <!-- 3. Music -->
+          <label class="uploader-box" for="direct-music-main-input">
+            <div class="uploader-icon">🎵</div>
+            <h4>Change Song</h4>
+            <p>.MP3 audio format</p>
+            <span class="uploader-cta-badge">Choose MP3</span>
+            <input type="file" id="direct-music-main-input" accept="audio/mpeg,audio/mp3,audio/wav,audio/*" style="display:none;" />
+          </label>
+        </div>
       </div>
     </div>
   </section>
@@ -170,6 +225,15 @@
       <div class="section-cinematic-intro reveal">
         <span class="subtle-label">Photographic Keepsakes</span>
         <h2>Moments I wish I could pause.</h2>
+
+        <!-- Direct Photo Uploader Button -->
+        <div style="margin-top:1.5rem;">
+          <label class="btn-direct-upload" for="direct-photo-input-gallery" title="Add new photos to Polaroid gallery">
+            <span>📸</span>
+            <span>+ Add Photos (.jpg / .png)</span>
+            <input type="file" id="direct-photo-input-gallery" accept="image/jpeg,image/png,image/webp,image/*" multiple style="display:none;" />
+          </label>
+        </div>
       </div>
 
       <div class="polaroid-scatter-table" id="photo-scatter-table">

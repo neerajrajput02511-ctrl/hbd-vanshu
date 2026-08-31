@@ -1946,3 +1946,111 @@ body {
   box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
 }
 
+/* =========================================================================
+   DIRECT ON-PAGE MEDIA UPLOADER BAR & BUTTONS
+   ========================================================================= */
+
+.btn-direct-upload {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(30, 8, 20, 0.85);
+  border: 1px solid var(--gold-champagne);
+  color: var(--gold-light);
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 10px rgba(212, 175, 55, 0.15);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.btn-direct-upload:hover {
+  background: linear-gradient(135deg, #d4af37, #b8860b);
+  color: #12030a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+}
+
+.direct-uploader-section {
+  padding: 4rem 1.5rem 2rem;
+  background: linear-gradient(to bottom, #11050a, #180612);
+  position: relative;
+}
+
+.uploader-glass-card {
+  background: rgba(18, 5, 14, 0.75);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 0 30px rgba(212, 175, 55, 0.05);
+  backdrop-filter: blur(20px);
+}
+
+.uploader-action-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.uploader-box {
+  background: rgba(28, 8, 22, 0.9);
+  border: 1px dashed rgba(212, 175, 55, 0.35);
+  border-radius: 12px;
+  padding: 1.8rem 1.2rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.uploader-box:hover {
+  background: rgba(45, 12, 35, 0.95);
+  border-color: var(--gold-light);
+  border-style: solid;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.25);
+}
+
+.uploader-icon {
+  font-size: 2.2rem;
+  margin-bottom: 2px;
+}
+
+.uploader-box h4 {
+  font-family: var(--font-serif-luxury);
+  color: var(--gold-light);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.uploader-box p {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+.uploader-cta-badge {
+  margin-top: 8px;
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--gold-champagne);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.uploader-box:hover .uploader-cta-badge {
+  background: var(--gold-champagne);
+  color: #1a040e;
+}
+
+

@@ -596,6 +596,126 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // =========================================================================
+  // Direct On-Page Media Uploaders (Photos, Videos, Music)
+  // =========================================================================
+
+  // 1. Direct Photos Handlers
+  const photoInputs = [
+    document.getElementById("direct-photos-main-input"),
+    document.getElementById("direct-photo-input-gallery")
+  ];
+
+  photoInputs.forEach(input => {
+    if (input) {
+      input.addEventListener("change", async (e) => {
+        const files = Array.from(e.target.files);
+        if (!files.length) return;
+
+        let addedCount = 0;
+        storage.config.PHOTOS = storage.config.PHOTOS || [];
+
+        for (let i = 0; i < files.length; i++) {
+          const file = files[i];
+          try {
+            const dataUrl = await StorageManager.fileToDataUrl(file);
+            const rotation = ((Math.random() * 6) - 3).toFixed(1);
+            storage.config.PHOTOS.unshift({
+              id: "photo-" + Date.now() + "-" + i,
+              url: dataUrl,
+              caption: "Special memory with you",
+              date: "Cherished moment",
+              rotation: parseFloat(rotation)
+            });
+            addedCount++;
+          } catch (err) {
+            console.error("Error reading photo:", err);
+          }
+        }
+
+        if (addedCount > 0) {
+          storage.saveConfig(storage.config);
+          renderPhotos(storage.config);
+          initScrollObserver();
+          alert(`✨ Added ${addedCount} photo(s) directly to your Polaroid gallery!`);
+        }
+      });
+    }
+  });
+
+  // 2. Direct Videos Handlers
+  const videoInputs = [
+    document.getElementById("direct-videos-main-input"),
+    document.getElementById("direct-video-input")
+  ];
+
+  videoInputs.forEach(input => {
+    if (input) {
+      input.addEventListener("change", async (e) => {
+        const files = Array.from(e.target.files);
+        if (!files.length) return;
+
+        storage.config.VIDEOS = storage.config.VIDEOS || [];
+
+        for (let i = 0; i < files.length; i++) {
+          const file = files[i];
+          const storageKey = "video_custom_" + Date.now() + "_" + i;
+          try {
+            await storage.saveMediaBlob(storageKey, file);
+            let poster = "";
+            if (typeof generateVideoThumbnail === "function") {
+              poster = await generateVideoThumbnail(file);
+            }
+
+            storage.config.VIDEOS.push({
+              id: "vid-" + Date.now() + "-" + i,
+              title: "VIDEO 0" + (storage.config.VIDEOS.length + 1),
+              caption: "A special moment between us",
+              url: `idb:${storageKey}`,
+              poster: poster || (storage.config.PHOTOS[0] ? storage.config.PHOTOS[0].url : ""),
+              type: "portrait"
+            });
+          } catch (err) {
+            console.error("Error saving video:", err);
+          }
+        }
+
+        storage.saveConfig(storage.config);
+        renderVideos(storage.config);
+        initScrollObserver();
+        alert("🎬 New video added directly to your keepsakes!");
+      });
+    }
+  });
+
+  // 3. Direct Music Handler
+  const musicInput = document.getElementById("direct-music-main-input");
+  if (musicInput) {
+    musicInput.addEventListener("change", async (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const storageKey = "song_track";
+        try {
+          await storage.saveMediaBlob(storageKey, file);
+          const songTitle = file.name.replace(/\.[^/.]+$/, "");
+          storage.config.SONG = storage.config.SONG || {};
+          storage.config.SONG.url = `idb:${storageKey}`;
+          storage.config.SONG.title = songTitle;
+          storage.saveConfig(storage.config);
+
+          if (audio) {
+            await audio.loadTrack(storage.config.SONG);
+            audio.play(storage.config.SONG);
+          }
+          alert(`🎵 Song "${songTitle}" loaded and playing!`);
+        } catch (err) {
+          console.error("Error loading music:", err);
+          alert("Error loading music track: " + err);
+        }
+      }
+    });
+  }
+
   // Floating Edit Button
   const floatingBtn = document.getElementById("floating-edit-btn");
   if (floatingBtn) {
