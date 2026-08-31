@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>For Vanshika — A Cinematic Birthday Love Story</title>
+  <meta name="description" content="A private digital love story and cinematic birthday experience created exclusively for Vanshika." />
+  <meta name="theme-color" content="#070204" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Film Grain Overlay -->
+  <div class="film-grain" aria-hidden="true"></div>
+
+  <!-- Ambient Light & Embers Canvas -->
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+  <!-- Top Navigation / Ambient Controls -->
+  <header class="top-nav">
+    <div class="brand-monogram" id="brand-monogram-trigger" onclick="window.openEditMode && window.openEditMode()" title="Click to enter Edit Mode">
+      <span class="mono-letters">V &amp; Forever</span>
+      <span class="edit-hint-dot" aria-hidden="true"></span>
+    </div>
+
+    <div class="audio-player-widget" id="music-toggle-btn" role="button" aria-label="Play our song" tabindex="0">
+      <span class="audio-title" id="music-song-title">♪ PLAY OUR SONG</span>
+      <div class="waveform-box">
+        <canvas id="music-waveform-canvas"></canvas>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       1. OPENING EXPERIENCE (CURTAIN / ENTRANCE)
+       ========================================================================= -->
+  <div class="opening-screen" id="opening-screen">
+    <div class="opening-content">
+      <p class="opening-whisper opening-step">"I made something for you."</p>
+      <h1 class="opening-name opening-step" id="opening-name-display">Vanshika.</h1>
+      <p class="opening-instruction opening-step">"Don't rush this."</p>
+      <div class="opening-step">
+        <button class="btn-enter-experience" id="btn-enter-experience">ENTER →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       2. HERO SECTION
+       ========================================================================= -->
+  <section class="hero-section" id="hero">
+    <div class="container-narrow">
+      <span class="hero-subtitle reveal">A Private Film &amp; Memory</span>
+      <h2 class="hero-title reveal delay-1">
+        Happy Birthday,
+        <span class="name-highlight" id="hero-target-name">Vanshika</span>
+      </h2>
+
+      <div class="hero-narrative">
+        <p class="hero-line reveal delay-2">"I could have just said Happy Birthday..."</p>
+        <p class="hero-line reveal delay-3">"...but you deserve more than one message."</p>
+        <p class="hero-line highlight reveal delay-4">"So I made you a little something."</p>
+      </div>
+
+      <div class="scroll-indicator reveal delay-4">
+        <span>Scroll gently</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3. BIRTHDAY COUNTDOWN
+       ========================================================================= -->
+  <section class="countdown-section" id="countdown">
+    <div class="container-narrow">
+      <h3 class="countdown-title reveal" id="countdown-title-text">Until your day begins...</h3>
+
+      <div class="countdown-grid reveal delay-1" id="countdown-grid">
+        <div class="countdown-card">
+          <span class="countdown-number" id="count-days">00</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <span class="countdown-separator">:</span>
+        <div class="countdown-card">
+          <span class="countdown-number" id="count-hours">00</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <span class="countdown-separator">:</span>
+        <div class="countdown-card">
+          <span class="countdown-number" id="count-mins">00</span>
+          <span class="countdown-label">Mins</span>
+        </div>
+        <span class="countdown-separator">:</span>
+        <div class="countdown-card">
+          <span class="countdown-number" id="count-secs">00</span>
+          <span class="countdown-label">Secs</span>
+        </div>
+      </div>
+
+      <div class="countdown-celebration" id="countdown-celebration">
+        <h3>Happy Birthday, Vanshika ❤️</h3>
+        <p class="font-handwritten" style="margin-top:0.8rem; font-size:2.4rem;">Today belongs entirely to you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. THE FIRST MEMORY (WARM IVORY TRANSITION)
+       ========================================================================= -->
+  <section class="memory-origin-section" id="first-memory">
+    <div class="container">
+      <div class="origin-header reveal">
+        <span class="origin-sub" id="story-subheading">Before there was an us...</span>
+        <h2 class="origin-heading" id="story-heading">There was a beginning.</h2>
+      </div>
+
+      <div class="story-flow" id="story-lines-flow">
+        <!-- Lines injected dynamically -->
+      </div>
+
+      <div class="story-annotation reveal delay-2" id="story-annotation">
+        "And somehow, this became us."
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       5. VIDEO MEMORIES SECTION
+       ========================================================================= -->
+  <section class="video-showcase-section" id="video-memories">
+    <div class="container">
+      <div class="section-cinematic-intro reveal">
+        <span class="subtle-label">Moving Keepsakes</span>
+        <p class="font-diary" style="font-size:1.6rem; color:var(--rose-dusty);">"I have something to show you."</p>
+        <h2>Press play.</h2>
+      </div>
+
+      <div class="video-grid" id="video-gallery-grid">
+        <!-- Video cards injected dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. "THE LITTLE THINGS" (DIARY NOTES)
+       ========================================================================= -->
+  <section class="little-things-section" id="little-things">
+    <div class="container">
+      <div class="section-cinematic-intro reveal">
+        <span class="subtle-label">Intimate Observations</span>
+        <h2>It's the little things about you.</h2>
+      </div>
+
+      <div class="diary-grid" id="little-things-grid">
+        <!-- Diary cards injected dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       7. PHOTO MEMORIES (SCATTERED POLAROIDS)
+       ========================================================================= -->
+  <section class="photo-memories-section" id="photo-memories">
+    <div class="container">
+      <div class="section-cinematic-intro reveal">
+        <span class="subtle-label">Photographic Keepsakes</span>
+        <h2>Moments I wish I could pause.</h2>
+      </div>
+
+      <div class="polaroid-scatter-table" id="photo-scatter-table">
+        <!-- Polaroids injected dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       8. LOVE NOTES (OPEN WHEN...)
+       ========================================================================= -->
+  <section class="love-notes-section" id="love-notes">
+    <div class="container">
+      <div class="section-cinematic-intro reveal">
+        <span class="subtle-label">Secret Letters</span>
+        <h2>Open when...</h2>
+      </div>
+
+      <div class="envelopes-grid" id="love-notes-grid">
+        <!-- Note envelopes injected dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       9. OUR TIMELINE ("US, SO FAR")
+       ========================================================================= -->
+  <section class="timeline-section" id="timeline">
+    <div class="container">
+      <div class="section-cinematic-intro reveal">
+        <span class="subtle-label">The Chapters</span>
+        <h2>Us, so far.</h2>
+      </div>
+
+      <div class="timeline-spine" id="timeline-spine">
+        <!-- Timeline items injected dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       10. MAIN INTERACTIVE CLIMAX: 3D REALISTIC ENVELOPE & LETTER
+       ========================================================================= -->
+  <section class="climax-envelope-section" id="climax-envelope">
+    <div class="container-narrow">
+      <span class="subtle-label reveal">The Climax</span>
+      <h2 class="reveal delay-1" style="font-family:var(--font-serif-luxury); font-size:clamp(2.2rem, 5.5vw, 3.5rem); color:var(--gold-light);">
+        There's one last thing.
+      </h2>
+      <p class="font-diary reveal delay-2" style="font-size:1.6rem; color:var(--rose-dusty); margin-top:0.4rem;">
+        "Open it when you're ready."
+      </p>
+
+      <div class="envelope-stage-container reveal delay-3">
+        <div class="realistic-envelope" id="realistic-envelope-card">
+          <!-- Top folding flap -->
+          <div class="envelope-flap"></div>
+          <!-- Wax Seal -->
+          <div class="wax-seal">
+            <span class="wax-seal-initial">V</span>
+          </div>
+          <!-- Pocket fold -->
+          <div class="envelope-pocket"></div>
+          <!-- Letter paper preview inside -->
+          <div class="letter-sheet-preview"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       11. "REASONS I LOVE YOU"
+       ========================================================================= -->
+  <section class="reasons-counter-section" id="reasons">
+    <div class="container-narrow">
+      <span class="subtle-label reveal">Endless Chapters</span>
+      <h2 class="reveal delay-1" style="font-family:var(--font-serif-luxury); font-size:2.8rem; color:var(--gold-light);">
+        Reasons I love you
+      </h2>
+
+      <div class="reasons-card-box reveal delay-2">
+        <span class="reason-index-badge" id="reason-index-badge">01</span>
+        <div class="reason-text-display" id="reason-text-display">...</div>
+        <button class="btn-next-reason" id="btn-next-reason">Another one.</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       12. VIDEO CLIMAX ("THIS ONE'S JUST FOR YOU")
+       ========================================================================= -->
+  <section class="video-climax-section" id="video-climax">
+    <div class="container-narrow">
+      <span class="subtle-label reveal">A Final Motion Keepsake</span>
+      <p class="font-diary reveal delay-1" style="font-size:1.6rem; color:var(--rose-dusty);">
+        "Okay... one more thing."
+      </p>
+      <h2 class="reveal delay-2" id="climax-video-title" style="font-family:var(--font-serif-luxury); font-size:clamp(2.4rem, 6vw, 3.8rem); color:var(--gold-light);">
+        This one's just for you.
+      </h2>
+
+      <div class="climax-video-container reveal delay-3">
+        <div class="climax-player-frame" id="climax-player-frame">
+          <img id="climax-poster-img" src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1200&q=80" alt="Main Birthday Video" style="width:100%; height:100%; object-fit:cover;" />
+          <div class="video-play-overlay">
+            <div class="play-circle-btn" style="width:68px; height:68px;">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            </div>
+          </div>
+        </div>
+        <p class="climax-note-text" id="climax-note-text">
+          "I hope you watch this whenever you need a reminder of how much you mean to me."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       13. FINAL SCREEN
+       ========================================================================= -->
+  <section class="final-quiet-section" id="final-screen">
+    <div class="container-narrow">
+      <p class="final-whisper reveal" id="final-whisper-text">If you remember only one thing from this...</p>
+      
+      <h2 class="final-loved-title reveal delay-1">You are loved.</h2>
+      <p class="final-loved-sub reveal delay-2">More than you know.</p>
+      
+      <p class="final-birthday-wish reveal delay-3" id="final-birthday-wish-text">Happy Birthday, Vanshika.</p>
+
+      <div class="final-signature-block reveal delay-4">
+        <span class="final-sig-label">Love,</span>
+        <h3 class="final-your-name" id="final-your-name-text">[YOUR NAME]</h3>
+        <p class="final-nickname" id="final-nickname-text">My favorite person</p>
+      </div>
+
+      <p class="final-ps-note reveal delay-4" id="final-ps-text">
+        P.S. You can come back here whenever you miss me.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       MODALS & OVERLAYS
+       ========================================================================= -->
+
+  <!-- "Open When" Note Modal -->
+  <div class="note-modal-overlay" id="note-modal-overlay">
+    <div class="note-letter-paper">
+      <button class="modal-close-btn" id="modal-note-close" aria-label="Close note">✕</button>
+      <h3 class="modal-note-title" id="modal-note-title">Love Note</h3>
+      <p class="modal-note-body" id="modal-note-body"></p>
+    </div>
+  </div>
+
+  <!-- Full Love Letter Unfold Viewport -->
+  <div class="love-letter-reading-overlay" id="love-letter-reading-overlay">
+    <div class="grand-letter-parchment">
+      <h2 class="letter-top-heading" id="modal-letter-heading">For Vanshika.</h2>
+      <div class="letter-actual-content" id="modal-letter-content"></div>
+      <button class="btn-close-letter" id="btn-close-letter">Fold Letter &amp; Keep in Heart</button>
+    </div>
+  </div>
+
+  <!-- Media Viewer Modal (Video / Lightbox) -->
+  <div class="media-viewer-modal" id="media-viewer-modal">
+    <div class="media-modal-container">
+      <button class="modal-close-btn" id="media-modal-close" style="color:#fff; top:-40px; right:0;" aria-label="Close viewer">✕</button>
+      <video class="media-modal-video" id="media-modal-video" controls playsinline></video>
+      <img class="media-modal-img" id="media-modal-img" src="" alt="Photo preview" />
+      <p class="media-modal-caption" id="media-modal-caption"></p>
+      
+      <div id="media-modal-upload-prompt" style="display:none; margin-top:1.5rem; text-align:center;">
+        <label class="btn-primary-action" style="display:inline-block; padding:0.75rem 1.8rem; border-radius:30px; cursor:pointer;">
+          📁 Choose MP4 Video for this Card
+          <input type="file" accept="video/mp4,video/webm,video/*" id="modal-direct-video-uploader" style="display:none;" />
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       HIDDEN EDIT MODE DRAWER (Triggered by 2s Long-Press on Logo)
+       ========================================================================= -->
+  <div class="edit-mode-drawer" id="edit-mode-drawer">
+    <div class="edit-drawer-header">
+      <h3 class="edit-drawer-title">Personalize Experience</h3>
+      <button class="modal-close-btn" id="edit-drawer-close" style="position:static; color:var(--gold-light);">✕</button>
+    </div>
+
+    <!-- Tab Bar -->
+    <nav class="edit-tabs-nav">
+      <button class="edit-tab-btn active" data-tab="general">General</button>
+      <button class="edit-tab-btn" data-tab="story">Story</button>
+      <button class="edit-tab-btn" data-tab="photos">Photos</button>
+      <button class="edit-tab-btn" data-tab="videos">Videos</button>
+      <button class="edit-tab-btn" data-tab="notes">Notes</button>
+      <button class="edit-tab-btn" data-tab="letter">Letter</button>
+      <button class="edit-tab-btn" data-tab="export">Export</button>
+    </nav>
+
+    <!-- Tab Panes -->
+    <div class="edit-drawer-body">
+      <!-- 1. General Info Pane -->
+      <div class="edit-tab-pane active" id="tab-pane-general">
+        <div class="form-group">
+          <label class="form-label">Her Name</label>
+          <input type="text" class="form-input" id="edit-her-name" placeholder="e.g. Vanshika" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input type="text" class="form-input" id="edit-your-name" placeholder="Your name or signature" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Birthday Date (YYYY-MM-DD)</label>
+          <input type="date" class="form-input" id="edit-birthday" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Relationship Duration</label>
+          <input type="text" class="form-input" id="edit-duration" placeholder="e.g. 2 years and counting" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Nicknames (comma separated)</label>
+          <input type="text" class="form-input" id="edit-nicknames" placeholder="Vanshu, Cutie, Babu" />
+        </div>
+      </div>
+
+      <!-- 2. Story Pane -->
+      <div class="edit-tab-pane" id="tab-pane-story">
+        <div class="form-group">
+          <label class="form-label">Subheading</label>
+          <input type="text" class="form-input" id="edit-story-subheading" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Heading</label>
+          <input type="text" class="form-input" id="edit-story-heading" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Meeting Story Lines (one line per paragraph)</label>
+          <textarea class="form-textarea" id="edit-story-lines" rows="6"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Annotation / Handwritten Note</label>
+          <input type="text" class="form-input" id="edit-story-annotation" />
+        </div>
+      </div>
+
+      <!-- 3. Photos Pane -->
+      <div class="edit-tab-pane" id="tab-pane-photos">
+        <div class="form-group">
+          <label class="form-label">Upload New Photo</label>
+          <input type="file" accept="image/*" id="photo-file-uploader" class="form-input" />
+        </div>
+        <label class="form-label">Current Photo Memories</label>
+        <div id="edit-photos-list"></div>
+      </div>
+
+      <!-- 4. Videos Pane -->
+      <div class="edit-tab-pane" id="tab-pane-videos">
+        <div class="form-group">
+          <label class="form-label">Upload Local Video File (.mp4 / .webm)</label>
+          <input type="file" accept="video/mp4,video/webm,video/*" id="video-file-uploader" class="form-input" />
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+          <label class="form-label" style="margin-bottom:0;">Video Clips</label>
+          <button type="button" class="btn-secondary-action" id="btn-add-video-slot" style="padding:4px 10px; font-size:0.75rem;">+ Add Video Slot</button>
+        </div>
+        <div id="edit-videos-list"></div>
+      </div>
+
+      <!-- 5. Notes & Timeline Pane -->
+      <div class="edit-tab-pane" id="tab-pane-notes">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.8rem;">
+          <label class="form-label" style="margin-bottom:0;">Open When Notes</label>
+          <button type="button" class="btn-secondary-action" id="btn-add-note-slot" style="padding:4px 10px; font-size:0.75rem;">+ Add Note</button>
+        </div>
+        <div id="edit-notes-list" style="margin-bottom:1.8rem;"></div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.8rem;">
+          <label class="form-label" style="margin-bottom:0;">Our Timeline Milestones</label>
+          <button type="button" class="btn-secondary-action" id="btn-add-timeline-slot" style="padding:4px 10px; font-size:0.75rem;">+ Add Milestone</button>
+        </div>
+        <div id="edit-timeline-list" style="margin-bottom:1.8rem;"></div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.8rem;">
+          <label class="form-label" style="margin-bottom:0;">The Little Things</label>
+          <button type="button" class="btn-secondary-action" id="btn-add-lt-slot" style="padding:4px 10px; font-size:0.75rem;">+ Add Observation</button>
+        </div>
+        <div id="edit-little-things-list"></div>
+      </div>
+
+      <!-- 6. Letter & Reasons Pane -->
+      <div class="edit-tab-pane" id="tab-pane-letter">
+        <div class="form-group">
+          <label class="form-label">Full Handwritten Love Letter</label>
+          <textarea class="form-textarea" id="edit-love-letter" rows="12"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Reasons I Love You (one reason per line)</label>
+          <textarea class="form-textarea" id="edit-reasons" rows="8"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Upload Our Song Audio File (.mp3 / .wav / .m4a)</label>
+          <input type="file" accept="audio/*" id="audio-file-uploader" class="form-input" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Background Song Title</label>
+          <input type="text" class="form-input" id="edit-song-title" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Background Song Audio URL (MP3)</label>
+          <input type="text" class="form-input" id="edit-song-url" placeholder="Paste MP3 link or leave empty for acoustic melody" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Climax Main Video Title</label>
+          <input type="text" class="form-input" id="edit-climax-title" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Upload Climax Video File (.mp4)</label>
+          <input type="file" accept="video/mp4,video/webm,video/*" id="climax-video-file-uploader" class="form-input" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Or Climax Video URL / File Path</label>
+          <input type="text" class="form-input" id="edit-climax-url" placeholder="e.g. assets/videos/climax.mp4" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Climax Video Poster Thumbnail</label>
+          <input type="file" accept="image/*" id="climax-poster-file-uploader" class="form-input" style="margin-bottom:6px;" />
+          <input type="text" class="form-input" id="edit-climax-poster" placeholder="Poster image URL or path" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Climax Note / Caption</label>
+          <input type="text" class="form-input" id="edit-climax-note" />
+        </div>
+      </div>
+
+      <!-- 7. Export & Backup Pane -->
+      <div class="edit-tab-pane" id="tab-pane-export">
+        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1.5rem; line-height:1.6;">
+          You can download your customized configuration as a replacement <code style="color:var(--gold-light);">config.js</code> file, copy it directly, or export JSON backups.
+        </p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <button type="button" class="btn-primary-action" id="btn-save-direct-disk" style="background:#4caf50; color:#fff;">💾 Auto-Save Directly to Disk</button>
+          <button type="button" class="btn-secondary-action" id="btn-export-js">📥 Download config.js File</button>
+          <button type="button" class="btn-secondary-action" id="btn-copy-config-clipboard" style="background:#280d19; color:var(--gold-light);">📋 Copy config.js Code to Clipboard</button>
+          
+          <div style="margin-top:10px;">
+            <label class="form-label">config.js Full Code (Select All &amp; Copy):</label>
+            <textarea class="form-textarea" id="edit-export-code-preview" rows="8" readonly style="font-family:monospace; font-size:0.75rem; background:#0a0206; color:#e5c158; cursor:pointer;" onclick="this.select()"></textarea>
+          </div>
+
+          <button type="button" class="btn-secondary-action" id="btn-export-json">Export Backup JSON</button>
+          <button type="button" class="btn-secondary-action" id="btn-import-json">Import Backup JSON</button>
+          <input type="file" id="file-import-input" accept=".json" style="display:none;" />
+          <button type="button" class="btn-secondary-action" id="btn-reset-default" style="color:#e0667b; border-color:#832338; margin-top:1.5rem;">Reset All to Default</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="edit-drawer-footer">
+      <button class="btn-primary-action" id="btn-save-changes">Save &amp; Apply Changes</button>
+    </div>
+  </div>
+
+  <!-- Floating Quick Edit Button -->
+  <button class="floating-edit-btn" id="floating-edit-btn" onclick="window.openEditMode && window.openEditMode()" title="Click or Press 'E' to Customize">
+    <span>⚙️</span>
+    <span>Edit Memories</span>
+  </button>
+
+  <!-- Application Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/editor.js"></script>
+</body>
+</html>
