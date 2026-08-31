@@ -222,7 +222,7 @@ const DEFAULT_CONFIG = {
     "isLocked": true,
     "passcode": "2006",
     "passcodeAnswers": ["2006", "vanshu", "0109", "vanshika", "neeraj", "babu", "love"],
-    "passcodeHint": "Hint: The birth year of my favorite person (2006) ✨",
+    "passcodeHint": "Hint: Our first talk ✨",
     "lockSubtitle": "A secret memory kept safe for your eyes only."
   }
 };
