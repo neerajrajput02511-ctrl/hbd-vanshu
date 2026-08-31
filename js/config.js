@@ -222,4 +222,5 @@ const DEFAULT_CONFIG = {
   }
 };
 
-window.DEFAULT_CONFIG = DEFAULT_CONFIG;
+if (typeof window !== "undefined") window.DEFAULT_CONFIG = DEFAULT_CONFIG;
+if (typeof module !== "undefined") module.exports = DEFAULT_CONFIG;
