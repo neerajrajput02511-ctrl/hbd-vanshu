@@ -415,6 +415,50 @@
     </div>
   </div>
 
+  <!-- Climax Video Passcode Lock Vault Modal -->
+  <div class="passcode-vault-modal" id="passcode-vault-modal">
+    <div class="passcode-vault-card">
+      <button class="modal-close-btn" id="passcode-modal-close" style="color:var(--gold-light); top:15px; right:15px;" aria-label="Close">✕</button>
+      
+      <div class="passcode-lock-icon-box">
+        <div class="passcode-lock-glow"></div>
+        <div class="passcode-lock-icon" id="passcode-lock-icon">🔒</div>
+      </div>
+
+      <span class="subtle-label">Private Keepsake</span>
+      <h3 class="passcode-title" id="passcode-title">Unlock Our Special Video</h3>
+      <p class="passcode-subtitle" id="passcode-subtitle">
+        Enter the secret code to watch this private memory.
+      </p>
+
+      <form id="passcode-form" class="passcode-form" onsubmit="return false;">
+        <div class="passcode-input-wrapper">
+          <input 
+            type="password" 
+            id="passcode-input-field" 
+            class="passcode-input" 
+            placeholder="Enter password..." 
+            autocomplete="off" 
+          />
+          <button type="button" class="btn-toggle-password-visibility" id="btn-toggle-password-visibility" title="Show/Hide">👁️</button>
+        </div>
+
+        <p class="passcode-hint" id="passcode-hint-text">
+          Hint: Your sweetest nickname (or our special date: 0109) ✨
+        </p>
+
+        <p class="passcode-error-msg" id="passcode-error-msg" style="display:none;">
+          Not quite... think of something special between us ❤️
+        </p>
+
+        <button type="submit" class="btn-unlock-climax" id="btn-unlock-climax">
+          <span>✨</span>
+          <span>Unlock &amp; Watch Video</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
   <!-- Media Viewer Modal (Video / Lightbox) -->
   <div class="media-viewer-modal" id="media-viewer-modal">
     <div class="media-modal-container">

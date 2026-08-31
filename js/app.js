@@ -330,7 +330,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (frame) {
       frame.onclick = () => {
-        openVideoModal(climax.url, climax.title, climax.note, "climax");
+        if (climax.isLocked !== false && !isClimaxUnlocked) {
+          openPasscodeVault(climax);
+        } else {
+          openVideoModal(climax.url, climax.title, climax.note, "climax");
+        }
       };
     }
   }
@@ -505,6 +509,107 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
     };
+  }
+
+  // =========================================================================
+  // Climax Video Passcode Lock Controller
+  // =========================================================================
+  const passcodeModal = document.getElementById("passcode-vault-modal");
+  const passcodeClose = document.getElementById("passcode-modal-close");
+  const passcodeForm = document.getElementById("passcode-form");
+  const passcodeInput = document.getElementById("passcode-input-field");
+  const passcodeHint = document.getElementById("passcode-hint-text");
+  const passcodeError = document.getElementById("passcode-error-msg");
+  const passcodeToggleEye = document.getElementById("btn-toggle-password-visibility");
+  const passcodeLockIcon = document.getElementById("passcode-lock-icon");
+
+  let isClimaxUnlocked = false;
+
+  function openPasscodeVault(climax) {
+    if (isClimaxUnlocked || (climax && climax.isLocked === false)) {
+      openVideoModal(climax.url, climax.title, climax.note, "climax");
+      return;
+    }
+
+    if (!passcodeModal) return;
+    if (passcodeInput) passcodeInput.value = "";
+    if (passcodeError) passcodeError.style.display = "none";
+    if (passcodeLockIcon) passcodeLockIcon.textContent = "🔒";
+    if (passcodeHint && climax.passcodeHint) {
+      passcodeHint.textContent = climax.passcodeHint;
+    }
+
+    passcodeModal.classList.add("open");
+    setTimeout(() => {
+      if (passcodeInput) passcodeInput.focus();
+    }, 200);
+  }
+
+  function closePasscodeVault() {
+    if (passcodeModal) passcodeModal.classList.remove("open");
+    if (passcodeError) passcodeError.style.display = "none";
+  }
+
+  if (passcodeClose) passcodeClose.addEventListener("click", closePasscodeVault);
+  if (passcodeModal) {
+    passcodeModal.addEventListener("click", (e) => {
+      if (e.target === passcodeModal) closePasscodeVault();
+    });
+  }
+
+  if (passcodeToggleEye && passcodeInput) {
+    passcodeToggleEye.addEventListener("click", () => {
+      const isPwd = passcodeInput.type === "password";
+      passcodeInput.type = isPwd ? "text" : "password";
+      passcodeToggleEye.textContent = isPwd ? "🙈" : "👁️";
+    });
+  }
+
+  if (passcodeForm) {
+    passcodeForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const entered = (passcodeInput ? passcodeInput.value : "").trim().toLowerCase();
+      const climax = (storage && storage.config && storage.config.CLIMAX_VIDEO) ? storage.config.CLIMAX_VIDEO : window.DEFAULT_CONFIG.CLIMAX_VIDEO;
+      
+      const validAnswers = new Set([
+        (climax.passcode || "vanshu").toLowerCase().trim(),
+        "vanshu", "0109", "vanshika", "neeraj", "babu", "love", "1234", "forever", "destiny"
+      ]);
+
+      if (climax.passcodeAnswers && Array.isArray(climax.passcodeAnswers)) {
+        climax.passcodeAnswers.forEach(a => validAnswers.add(String(a).toLowerCase().trim()));
+      }
+
+      if (validAnswers.has(entered)) {
+        // Correct Password!
+        isClimaxUnlocked = true;
+        if (passcodeLockIcon) passcodeLockIcon.textContent = "🔓";
+        if (passcodeError) passcodeError.style.display = "none";
+        
+        if (particles) {
+          particles.burst(window.innerWidth / 2, window.innerHeight / 2, 50);
+        }
+
+        setTimeout(() => {
+          closePasscodeVault();
+          openVideoModal(climax.url, climax.title, climax.note, "climax");
+        }, 500);
+      } else {
+        // Incorrect Password
+        if (passcodeError) {
+          passcodeError.style.display = "block";
+          passcodeError.classList.remove("shake");
+          void passcodeError.offsetWidth;
+          passcodeError.classList.add("shake");
+        }
+        if (passcodeInput) {
+          passcodeInput.classList.remove("shake");
+          void passcodeInput.offsetWidth;
+          passcodeInput.classList.add("shake");
+          passcodeInput.focus();
+        }
+      }
+    });
   }
 
   function openImageModal(url, caption) {

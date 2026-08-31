@@ -218,7 +218,12 @@ const DEFAULT_CONFIG = {
     "title": "Our Story — For Vanshika",
     "url": "assets/videos/climax.mp4",
     "poster": "assets/photos/photo1.jpg",
-    "note": "A collection of frames that words alone could never hold."
+    "note": "A collection of frames that words alone could never hold.",
+    "isLocked": true,
+    "passcode": "vanshu",
+    "passcodeAnswers": ["vanshu", "0109", "vanshika", "neeraj", "babu", "love"],
+    "passcodeHint": "Hint: Your sweetest nickname (or our special date: 0109) ✨",
+    "lockSubtitle": "A secret memory kept safe for your eyes only."
   }
 };
 
