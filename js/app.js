@@ -38,6 +38,75 @@ document.addEventListener("DOMContentLoaded", () => {
 
   runOpeningSequence();
 
+  // =========================================================================
+  // Opening Screen Midnight Countdown Lock
+  // =========================================================================
+  const openCountdownVault = document.getElementById("opening-countdown-vault");
+  const openUnlockedState = document.getElementById("opening-unlocked-state");
+  const openHoursEl = document.getElementById("open-count-hours");
+  const openMinsEl = document.getElementById("open-count-mins");
+  const openSecsEl = document.getElementById("open-count-secs");
+  const btnSendHug = document.getElementById("btn-send-hug");
+  const btnBypass = document.getElementById("btn-creator-bypass");
+
+  let isMidnightUnlocked = false;
+  const targetMidnight = new Date(config.BIRTHDAY || "2026-09-01T00:00:00").getTime();
+
+  function updateOpeningCountdown() {
+    if (isMidnightUnlocked) return;
+
+    const now = new Date().getTime();
+    const distance = targetMidnight - now;
+
+    if (distance <= 0) {
+      // Midnight Reached!
+      triggerMidnightUnlock();
+      return;
+    }
+
+    // Before Midnight: Show countdown vault, hide standard ENTER button
+    if (openCountdownVault) openCountdownVault.style.display = "block";
+    if (openUnlockedState) openUnlockedState.style.display = "none";
+
+    const hours = Math.floor(distance / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    if (openHoursEl) openHoursEl.textContent = String(hours).padStart(2, "0");
+    if (openMinsEl) openMinsEl.textContent = String(minutes).padStart(2, "0");
+    if (openSecsEl) openSecsEl.textContent = String(seconds).padStart(2, "0");
+  }
+
+  function triggerMidnightUnlock() {
+    isMidnightUnlocked = true;
+    if (openCountdownVault) openCountdownVault.style.display = "none";
+    if (openUnlockedState) openUnlockedState.style.display = "block";
+
+    if (particles) {
+      particles.burst(window.innerWidth / 2, window.innerHeight / 2, 80);
+    }
+  }
+
+  setInterval(updateOpeningCountdown, 1000);
+  updateOpeningCountdown();
+
+  // Hug button (Heart Burst Animation)
+  if (btnSendHug) {
+    btnSendHug.addEventListener("click", () => {
+      if (particles) {
+        particles.burst(window.innerWidth / 2, window.innerHeight / 2, 35);
+      }
+      alert("💖 A warm, tight hug was sent straight across the universe to you!");
+    });
+  }
+
+  // Creator Bypass
+  if (btnBypass) {
+    btnBypass.addEventListener("click", () => {
+      triggerMidnightUnlock();
+    });
+  }
+
   // Enter Experience Button
   if (btnEnter) {
     btnEnter.addEventListener("click", () => {

@@ -36,15 +36,62 @@
   </header>
 
   <!-- =========================================================================
-       1. OPENING EXPERIENCE (CURTAIN / ENTRANCE)
+       1. OPENING EXPERIENCE (CURTAIN / MIDNIGHT LOCK & ENTRANCE)
        ========================================================================= -->
   <div class="opening-screen" id="opening-screen">
-    <div class="opening-content">
+    <!-- Starry & Candle Glow Background -->
+    <div class="opening-atmosphere-glow"></div>
+
+    <div class="opening-content" id="opening-content-box">
+      <!-- 1. Normal Sequence Elements -->
       <p class="opening-whisper opening-step">"I made something for you."</p>
       <h1 class="opening-name opening-step" id="opening-name-display">Vanshika.</h1>
-      <p class="opening-instruction opening-step">"Don't rush this."</p>
-      <div class="opening-step">
-        <button class="btn-enter-experience" id="btn-enter-experience">ENTER →</button>
+      
+      <!-- Pre-Midnight Countdown Box (Shown only before 12:00 AM) -->
+      <div class="opening-countdown-vault" id="opening-countdown-vault" style="display:none;">
+        <span class="subtle-label" style="letter-spacing:0.25em;">A Midnight Surprise</span>
+        <h2 class="opening-vault-title">Unlocks at 12:00 AM</h2>
+        <p class="opening-vault-subtitle">
+          "The best things in life arrive right on time..."
+        </p>
+
+        <!-- Live Countdown Digits -->
+        <div class="opening-timer-grid">
+          <div class="opening-timer-card">
+            <span class="opening-timer-num" id="open-count-hours">00</span>
+            <span class="opening-timer-lbl">Hours</span>
+          </div>
+          <span class="opening-timer-sep">:</span>
+          <div class="opening-timer-card">
+            <span class="opening-timer-num" id="open-count-mins">00</span>
+            <span class="opening-timer-lbl">Mins</span>
+          </div>
+          <span class="opening-timer-sep">:</span>
+          <div class="opening-timer-card">
+            <span class="opening-timer-num" id="open-count-secs">00</span>
+            <span class="opening-timer-lbl">Secs</span>
+          </div>
+        </div>
+
+        <!-- Cute Interactive While Waiting -->
+        <div class="opening-waiting-actions">
+          <button type="button" class="btn-hug-action" id="btn-send-hug">
+            <span>🤗</span>
+            <span>Send a Warm Hug</span>
+          </button>
+          <button type="button" class="btn-creator-bypass" id="btn-creator-bypass" title="Preview full site early">
+            <span>🗝️</span>
+            <span>Preview Early (Creator)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Post-Midnight / Unlocked Entrance (Shown at 12:00 AM or after bypass) -->
+      <div class="opening-unlocked-state" id="opening-unlocked-state">
+        <p class="opening-instruction opening-step">"Don't rush this."</p>
+        <div class="opening-step">
+          <button class="btn-enter-experience" id="btn-enter-experience">ENTER →</button>
+        </div>
       </div>
     </div>
   </div>
