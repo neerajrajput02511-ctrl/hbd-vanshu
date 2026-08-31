@@ -100,12 +100,41 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Creator Bypass
-  if (btnBypass) {
-    btnBypass.addEventListener("click", () => {
+  // Secret Creator Early Preview Bypass (Invisible to public visitors)
+  function promptCreatorBypass() {
+    const pin = prompt("🔐 Creator Early Preview — Enter PIN:");
+    if (pin && ["2006", "neeraj", "admin", "vanshu"].includes(pin.trim().toLowerCase())) {
       triggerMidnightUnlock();
+      alert("✨ Creator Preview Activated!");
+    } else if (pin !== null) {
+      alert("Incorrect PIN.");
+    }
+  }
+
+  // 1. Triple click on opening name "Vanshika." triggers creator prompt
+  const openNameDisplay = document.getElementById("opening-name-display");
+  let clickCount = 0;
+  let clickTimer = null;
+  if (openNameDisplay) {
+    openNameDisplay.style.cursor = "default";
+    openNameDisplay.addEventListener("click", () => {
+      clickCount++;
+      clearTimeout(clickTimer);
+      if (clickCount >= 3) {
+        clickCount = 0;
+        promptCreatorBypass();
+      } else {
+        clickTimer = setTimeout(() => { clickCount = 0; }, 600);
+      }
     });
   }
+
+  // 2. Keyboard shortcut 'P' or 'Ctrl+Shift+P' triggers creator preview
+  window.addEventListener("keydown", (e) => {
+    if ((e.key === "p" || e.key === "P") && !["INPUT", "TEXTAREA"].includes(document.activeElement.tagName) && !isMidnightUnlocked) {
+      promptCreatorBypass();
+    }
+  });
 
   // Enter Experience Button
   if (btnEnter) {
