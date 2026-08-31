@@ -572,8 +572,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const climax = (storage && storage.config && storage.config.CLIMAX_VIDEO) ? storage.config.CLIMAX_VIDEO : window.DEFAULT_CONFIG.CLIMAX_VIDEO;
       
       const validAnswers = new Set([
-        (climax.passcode || "vanshu").toLowerCase().trim(),
-        "vanshu", "0109", "vanshika", "neeraj", "babu", "love", "1234", "forever", "destiny"
+        (climax.passcode || "2006").toLowerCase().trim(),
+        "2006", "vanshu", "0109", "vanshika", "neeraj", "babu", "love", "1234", "forever", "destiny"
       ]);
 
       if (climax.passcodeAnswers && Array.isArray(climax.passcodeAnswers)) {

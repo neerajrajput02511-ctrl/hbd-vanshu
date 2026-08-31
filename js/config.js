@@ -220,9 +220,9 @@ const DEFAULT_CONFIG = {
     "poster": "assets/photos/photo1.jpg",
     "note": "A collection of frames that words alone could never hold.",
     "isLocked": true,
-    "passcode": "vanshu",
-    "passcodeAnswers": ["vanshu", "0109", "vanshika", "neeraj", "babu", "love"],
-    "passcodeHint": "Hint: Your sweetest nickname (or our special date: 0109) ✨",
+    "passcode": "2006",
+    "passcodeAnswers": ["2006", "vanshu", "0109", "vanshika", "neeraj", "babu", "love"],
+    "passcodeHint": "Hint: The birth year of my favorite person (2006) ✨",
     "lockSubtitle": "A secret memory kept safe for your eyes only."
   }
 };
