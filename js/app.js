@@ -136,14 +136,35 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Strict Scroll Lock on Page Load until Midnight / Unlocked
+  document.body.classList.add("experience-locked");
+
   // Enter Experience Button
   if (btnEnter) {
     btnEnter.addEventListener("click", () => {
-      openingScreen.classList.add("hidden");
-      audio.play(config.SONG);
-      if (particles) {
-        particles.burst(window.innerWidth / 2, window.innerHeight / 2, 40);
+      // 1. Remove scroll lock on body
+      document.body.classList.remove("experience-locked");
+
+      // 2. Reveal main experience container
+      const mainContent = document.getElementById("main-experience-content");
+      if (mainContent) {
+        mainContent.classList.remove("main-experience-locked");
+        mainContent.style.display = "block";
       }
+
+      // 3. Hide opening screen curtain
+      openingScreen.classList.add("hidden");
+      
+      // 4. Play background music
+      audio.play(config.SONG);
+      
+      if (particles) {
+        particles.burst(window.innerWidth / 2, window.innerHeight / 2, 60);
+      }
+
+      // 5. Initialize scroll reveal observer
+      initScrollObserver();
+
       setTimeout(() => {
         const heroSection = document.getElementById("hero");
         if (heroSection) heroSection.scrollIntoView({ behavior: "smooth" });

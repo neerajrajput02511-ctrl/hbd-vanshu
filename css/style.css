@@ -362,11 +362,28 @@ body {
 }
 
 /* =========================================================================
-   MIDNIGHT COUNTDOWN VAULT & WAITING SCREEN
+   MIDNIGHT COUNTDOWN VAULT & SCROLL LOCK
    ========================================================================= */
 
+body.experience-locked {
+  overflow: hidden !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  touch-action: none !important;
+}
+
+.main-experience-locked {
+  display: none !important;
+}
+
 .opening-screen {
-  position: relative;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 99999 !important;
+  overflow: hidden !important;
   background: radial-gradient(circle at 50% 40%, #1f0714 0%, #080205 80%);
 }
 
