@@ -32,8 +32,8 @@ const DEFAULT_CONFIG = {
     "annotation": "And somehow, this became us."
   },
   "SONG": {
-    "title": "Tum Se Hi",
-    "artist": "Acoustic Melody for Vanshika",
+    "title": "Tum Se Hi (Jab We Met)",
+    "artist": "Mohit Chauhan — For Vanshika",
     "url": "assets/music/song.mp3",
     "ambientMode": true
   },
@@ -68,17 +68,17 @@ const DEFAULT_CONFIG = {
     {
       "id": "vid-1",
       "title": "A Special Moment",
-      "caption": "Our favorite laugh together",
+      "caption": "A sweet glimpse of you that brightens my entire world",
       "url": "assets/videos/video1.mp4",
-      "poster": "",
+      "poster": "assets/photos/photo1.jpg",
       "type": "portrait"
     },
     {
       "id": "vid-2",
-      "title": "With You, Always",
-      "caption": "Every second is magic",
+      "title": "Forever With You",
+      "caption": "Every single second with you is my favorite memory",
       "url": "assets/videos/video2.mp4",
-      "poster": "",
+      "poster": "assets/photos/photo4.jpg",
       "type": "portrait"
     }
   ],
@@ -86,23 +86,79 @@ const DEFAULT_CONFIG = {
     {
       "id": "photo-1",
       "url": "assets/photos/photo1.jpg",
-      "caption": "My favorite smile",
+      "caption": "My favorite smile in the whole universe",
       "date": "Cherished moment",
-      "rotation": -2.5
+      "rotation": -2.8
     },
     {
       "id": "photo-2",
-      "url": "assets/photos/photo2.jpg",
+      "url": "assets/photos/photo2.png",
       "caption": "You & Me",
       "date": "Unforgettable",
-      "rotation": 3.1
+      "rotation": 3.2
     },
     {
       "id": "photo-3",
-      "url": "assets/photos/photo3.jpg",
-      "caption": "Pure radiance",
+      "url": "assets/photos/photo3.webp",
+      "caption": "Pure radiance and warmth",
       "date": "Always beautiful",
+      "rotation": -1.5
+    },
+    {
+      "id": "photo-4",
+      "url": "assets/photos/photo4.jpg",
+      "caption": "Looking at you feels like home",
+      "date": "Special memory",
+      "rotation": 2.4
+    },
+    {
+      "id": "photo-5",
+      "url": "assets/photos/photo5.jpg",
+      "caption": "The prettiest girl in the world",
+      "date": "Magic",
+      "rotation": -3.1
+    },
+    {
+      "id": "photo-6",
+      "url": "assets/photos/photo6.jpg",
+      "caption": "Every memory with you is golden",
+      "date": "Us",
+      "rotation": 1.9
+    },
+    {
+      "id": "photo-7",
+      "url": "assets/photos/photo7.jpg",
+      "caption": "My forever cutie",
+      "date": "Happiness",
+      "rotation": -2.2
+    },
+    {
+      "id": "photo-8",
+      "url": "assets/photos/photo8.jpg",
+      "caption": "Unstoppable beauty",
+      "date": "Love",
+      "rotation": 3.5
+    },
+    {
+      "id": "photo-9",
+      "url": "assets/photos/photo9.jpg",
+      "caption": "You are my destiny",
+      "date": "Forever",
       "rotation": -1.8
+    },
+    {
+      "id": "photo-10",
+      "url": "assets/photos/photo10.jpg",
+      "caption": "My favorite person",
+      "date": "Heartfelt",
+      "rotation": 2.7
+    },
+    {
+      "id": "photo-11",
+      "url": "assets/photos/photo11.jpg",
+      "caption": "Always and forever yours",
+      "date": "Happy Birthday",
+      "rotation": -3.0
     }
   ],
   "LOVE_NOTES": [
@@ -159,9 +215,9 @@ const DEFAULT_CONFIG = {
   ],
   "LOVE_LETTER": "Vanshika,\n\nIf you are reading this, I hope you can feel how much love went into every single word, frame, and melody of this space.\n\nFrom the moment you entered my life, colors became richer, days became softer, and the future became something I look forward to with an open heart. You have this quiet, radiant grace that changes everything around you for the better.\n\nThank you for being my favorite story, my quiet sanctuary, and my greatest adventure. May this birthday be as breathtaking, gentle, and brilliant as you are.\n\nForever and always,\nNeeraj",
   "CLIMAX_VIDEO": {
-    "title": "Our Private Cinema",
+    "title": "Our Story — For Vanshika",
     "url": "assets/videos/climax.mp4",
-    "poster": "",
+    "poster": "assets/photos/photo1.jpg",
     "note": "A collection of frames that words alone could never hold."
   }
 };

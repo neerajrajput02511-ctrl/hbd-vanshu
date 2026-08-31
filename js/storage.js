@@ -6,7 +6,7 @@
  * and JSON import/export for seamless customization.
  */
 
-const STORAGE_KEY = "FOR_VANSHIKA_CONFIG_V1";
+const STORAGE_KEY = "FOR_VANSHIKA_CONFIG_V2";
 const IDB_NAME = "VanshikaBirthdayMediaDB";
 const IDB_VERSION = 1;
 const IDB_STORE = "media_blobs";
