@@ -32,9 +32,9 @@ const DEFAULT_CONFIG = {
     "annotation": "And somehow, this became us."
   },
   "SONG": {
-    "title": "MOHIT_CHAUHAN_-_TUM_SE_HI_FILM_JAB_WE_MET_(mp3.pm)",
+    "title": "Tum Se Hi",
     "artist": "Acoustic Melody for Vanshika",
-    "url": "idb:song_track",
+    "url": "assets/music/song.mp3",
     "ambientMode": true
   },
   "LITTLE_THINGS": [
@@ -66,23 +66,45 @@ const DEFAULT_CONFIG = {
   ],
   "VIDEOS": [
     {
-      "id": "vid-1788175070175",
-      "title": "VIDEO 01",
-      "caption": "A special moment between us",
-      "url": "idb:video_vid-1788175070175",
+      "id": "vid-1",
+      "title": "A Special Moment",
+      "caption": "Our favorite laugh together",
+      "url": "assets/videos/video1.mp4",
       "poster": "",
       "type": "portrait"
     },
     {
-      "id": "vid-1788175072929",
-      "title": "VIDEO 02",
-      "caption": "A special moment between us",
-      "url": "idb:video_vid-1788175072929",
+      "id": "vid-2",
+      "title": "With You, Always",
+      "caption": "Every second is magic",
+      "url": "assets/videos/video2.mp4",
       "poster": "",
       "type": "portrait"
     }
   ],
-  "PHOTOS": [],
+  "PHOTOS": [
+    {
+      "id": "photo-1",
+      "url": "assets/photos/photo1.jpg",
+      "caption": "My favorite smile",
+      "date": "Cherished moment",
+      "rotation": -2.5
+    },
+    {
+      "id": "photo-2",
+      "url": "assets/photos/photo2.jpg",
+      "caption": "You & Me",
+      "date": "Unforgettable",
+      "rotation": 3.1
+    },
+    {
+      "id": "photo-3",
+      "url": "assets/photos/photo3.jpg",
+      "caption": "Pure radiance",
+      "date": "Always beautiful",
+      "rotation": -1.8
+    }
+  ],
   "LOVE_NOTES": [
     {
       "id": "note-1",
@@ -138,7 +160,7 @@ const DEFAULT_CONFIG = {
   "LOVE_LETTER": "Vanshika,\n\nIf you are reading this, I hope you can feel how much love went into every single word, frame, and melody of this space.\n\nFrom the moment you entered my life, colors became richer, days became softer, and the future became something I look forward to with an open heart. You have this quiet, radiant grace that changes everything around you for the better.\n\nThank you for being my favorite story, my quiet sanctuary, and my greatest adventure. May this birthday be as breathtaking, gentle, and brilliant as you are.\n\nForever and always,\nNeeraj",
   "CLIMAX_VIDEO": {
     "title": "Our Private Cinema",
-    "url": "",
+    "url": "assets/videos/climax.mp4",
     "poster": "",
     "note": "A collection of frames that words alone could never hold."
   }
