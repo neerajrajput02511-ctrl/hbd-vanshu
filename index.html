@@ -415,47 +415,82 @@
     </div>
   </div>
 
-  <!-- Climax Video Passcode Lock Vault Modal -->
+  <!-- Climax Video Passcode Lock Vault: Vintage Journal & Locket -->
   <div class="passcode-vault-modal" id="passcode-vault-modal">
-    <div class="passcode-vault-card">
-      <button class="modal-close-btn" id="passcode-modal-close" style="color:var(--gold-light); top:15px; right:15px;" aria-label="Close">✕</button>
+    <div class="vintage-journal-wrapper">
+      <button class="modal-close-btn journal-close-btn" id="passcode-modal-close" aria-label="Close">✕</button>
       
-      <div class="passcode-lock-icon-box">
-        <div class="passcode-lock-glow"></div>
-        <div class="passcode-lock-icon" id="passcode-lock-icon">🔒</div>
-      </div>
+      <div class="vintage-leather-book">
+        <!-- Gold Locket Chain -->
+        <div class="gold-locket-chain"></div>
 
-      <span class="subtle-label">Private Keepsake</span>
-      <h3 class="passcode-title" id="passcode-title">Unlock Our Special Video</h3>
-      <p class="passcode-subtitle" id="passcode-subtitle">
-        Enter the secret code to watch this private memory.
-      </p>
+        <!-- Left Page: Brass Heart Locket & Photos -->
+        <div class="journal-page journal-page-left">
+          <div class="locket-display-container">
+            <div class="brass-heart-locket" id="brass-heart-locket">
+              <div class="locket-half locket-left">
+                <img src="assets/photos/photo1.jpg" alt="Memory" class="locket-photo-sepia" />
+              </div>
+              <div class="locket-half locket-right">
+                <img src="assets/photos/photo2.png" alt="Memory" class="locket-photo-sepia" />
+              </div>
+            </div>
+            <div class="locket-shadow"></div>
+          </div>
 
-      <form id="passcode-form" class="passcode-form" onsubmit="return false;">
-        <div class="passcode-input-wrapper">
-          <input 
-            type="password" 
-            id="passcode-input-field" 
-            class="passcode-input" 
-            placeholder="Enter password..." 
-            autocomplete="off" 
-          />
-          <button type="button" class="btn-toggle-password-visibility" id="btn-toggle-password-visibility" title="Show/Hide">👁️</button>
+          <div class="vintage-quote-left">
+            <p class="font-handwritten-cursive">"Eternally Yours, My Dearest..."</p>
+            <span class="vintage-date-tag">Our Love Story</span>
+          </div>
+
+          <!-- Scattered Rose Petals -->
+          <div class="scattered-petal p1">🌸</div>
+          <div class="scattered-petal p2">🌹</div>
+          <div class="scattered-petal p3">🌸</div>
         </div>
 
-        <p class="passcode-hint" id="passcode-hint-text">
-          Hint: Your sweetest nickname (or our special date: 0109) ✨
-        </p>
+        <!-- Book Spine Crease -->
+        <div class="journal-spine-crease"></div>
 
-        <p class="passcode-error-msg" id="passcode-error-msg" style="display:none;">
-          Not quite... think of something special between us ❤️
-        </p>
+        <!-- Right Page: The Password to Our Story & Ink Input -->
+        <div class="journal-page journal-page-right">
+          <div class="page-top-feather">✒️</div>
+          
+          <h3 class="calligraphy-prompt">
+            The password to our story is...
+          </h3>
 
-        <button type="submit" class="btn-unlock-climax" id="btn-unlock-climax">
-          <span>✨</span>
-          <span>Unlock &amp; Watch Video</span>
-        </button>
-      </form>
+          <form id="passcode-form" class="vintage-passcode-form" onsubmit="return false;">
+            <div class="ink-input-container">
+              <span class="ink-key-icon">🗝️</span>
+              <input 
+                type="password" 
+                id="passcode-input-field" 
+                class="vintage-ink-input" 
+                placeholder="Enter password..." 
+                autocomplete="off" 
+              />
+              <button type="button" class="btn-vintage-eye" id="btn-toggle-password-visibility" title="Reveal / Hide">👁️</button>
+            </div>
+
+            <p class="vintage-hint-text" id="passcode-hint-text">
+              Hint: A special nickname or the day we met (0109) ✨
+            </p>
+
+            <p class="vintage-error-text" id="passcode-error-msg" style="display:none;">
+              Not quite... think of a word closest to our hearts ❤️
+            </p>
+
+            <button type="submit" class="btn-unlock-journal" id="btn-unlock-climax">
+              <span class="wax-seal-btn-badge">📜</span>
+              <span>Open &amp; Watch Video</span>
+            </button>
+          </form>
+
+          <!-- Antique keys decoration -->
+          <div class="antique-keys-decor">🗝️ 🔑</div>
+        </div>
+      </div>
     </div>
   </div>
 

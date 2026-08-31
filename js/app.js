@@ -583,17 +583,21 @@ document.addEventListener("DOMContentLoaded", () => {
       if (validAnswers.has(entered)) {
         // Correct Password!
         isClimaxUnlocked = true;
-        if (passcodeLockIcon) passcodeLockIcon.textContent = "🔓";
+        const locket = document.getElementById("brass-heart-locket");
+        if (locket) {
+          locket.style.transform = "scale(1.2) rotate(0deg)";
+          locket.style.filter = "drop-shadow(0 0 25px rgba(212, 175, 55, 0.9))";
+        }
         if (passcodeError) passcodeError.style.display = "none";
         
         if (particles) {
-          particles.burst(window.innerWidth / 2, window.innerHeight / 2, 50);
+          particles.burst(window.innerWidth / 2, window.innerHeight / 2, 60);
         }
 
         setTimeout(() => {
           closePasscodeVault();
           openVideoModal(climax.url, climax.title, climax.note, "climax");
-        }, 500);
+        }, 600);
       } else {
         // Incorrect Password
         if (passcodeError) {
