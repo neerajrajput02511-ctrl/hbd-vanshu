@@ -716,6 +716,43 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // 4. Direct Climax Video Handlers
+  const climaxVideoInputs = [
+    document.getElementById("direct-climax-uploader-box"),
+    document.getElementById("direct-climax-video-input")
+  ];
+
+  climaxVideoInputs.forEach(input => {
+    if (input) {
+      input.addEventListener("change", async (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const storageKey = "video_climax_custom";
+          try {
+            await storage.saveMediaBlob(storageKey, file);
+            let poster = "";
+            if (typeof generateVideoThumbnail === "function") {
+              poster = await generateVideoThumbnail(file);
+            }
+
+            storage.config.CLIMAX_VIDEO = storage.config.CLIMAX_VIDEO || {};
+            storage.config.CLIMAX_VIDEO.title = "Our Story — For Vanshika";
+            storage.config.CLIMAX_VIDEO.url = `idb:${storageKey}`;
+            if (poster) storage.config.CLIMAX_VIDEO.poster = poster;
+
+            storage.saveConfig(storage.config);
+            renderVideoClimax(storage.config);
+            initScrollObserver();
+            alert("✨ Climax Video uploaded successfully! Scroll to Section 12 or press play to preview.");
+          } catch (err) {
+            console.error("Error saving climax video:", err);
+            alert("Error saving climax video: " + err);
+          }
+        }
+      });
+    }
+  });
+
   // Floating Edit Button
   const floatingBtn = document.getElementById("floating-edit-btn");
   if (floatingBtn) {
